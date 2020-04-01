@@ -25,7 +25,6 @@ public class HotelBookingReader {
 					
 					int leadTime = -1;
 					int arrivalDateYear = -1; 
-					int arrivalDateMonth = -1;
 					int arrivalDateWeekNum = -1;
 					int arrivalDateDayOfMonth = -1;
 					int staysInWeekendNights = -1;
@@ -50,141 +49,137 @@ public class HotelBookingReader {
 					
 					
 					try {
-						leadTime = Integer.parseInt(lineComponents[3]);
+						leadTime = Integer.parseInt(lineComponents[2]);
 					} catch (NumberFormatException e) {
 						
 					}
 				
 					try {
-						arrivalDateYear = Integer.parseInt(lineComponents[4]);
+						arrivalDateYear = Integer.parseInt(lineComponents[3]);
 					} catch (NumberFormatException e) {
 						
 					}
 				
+					String arrivalDateMonth = lineComponents[4];
 
-					try {
-						arrivalDateMonth = Integer.parseInt(lineComponents[5]);
-					} catch (NumberFormatException e) {
-
-					}
 					
 					try {
-						arrivalDateWeekNum = Integer.parseInt(lineComponents[6]);
+						arrivalDateWeekNum = Integer.parseInt(lineComponents[5]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 			
 					try {
-						arrivalDateDayOfMonth = Integer.parseInt(lineComponents[7]);
+						arrivalDateDayOfMonth = Integer.parseInt(lineComponents[6]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 					try {
-						staysInWeekendNights  = Integer.parseInt(lineComponents[8]);
+						staysInWeekendNights  = Integer.parseInt(lineComponents[7]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 					try {
-						staysInWeekNights = Integer.parseInt(lineComponents[9]);
+						staysInWeekNights = Integer.parseInt(lineComponents[8]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 					try {
-						adults = Integer.parseInt(lineComponents[10]);
+						adults = Integer.parseInt(lineComponents[9]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 					try {
-						children = Integer.parseInt(lineComponents[11]);
+						children = Integer.parseInt(lineComponents[10]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 					try {
-						babies = Integer.parseInt(lineComponents[12]);
+						babies = Integer.parseInt(lineComponents[11]);
 					} catch (NumberFormatException e) {
 
 					}
 					
-					String meal = lineComponents[13];
+					String meal = lineComponents[12];
 					
-					String country = lineComponents[14];
+					String country = lineComponents[13];
 					
-					String marketSegment = lineComponents[15]; 
+					String marketSegment = lineComponents[14]; 
 					
-					String distributionChannel = lineComponents[16];
+					String distributionChannel = lineComponents[15];
 					
-					boolean repeatedGuest = (lineComponents[17].equals("1"));
+					boolean repeatedGuest = (lineComponents[16].equals("1"));
 					
 					try {
-						previousCancellations = Integer.parseInt(lineComponents[18]);
+						previousCancellations = Integer.parseInt(lineComponents[17]);
 					} catch (NumberFormatException e) {
 
 					}
 					try {
-						previousBookingsNotCanceled = Integer.parseInt(lineComponents[19]);
+						previousBookingsNotCanceled = Integer.parseInt(lineComponents[18]);
 					} catch (NumberFormatException e) {
 
 					}
 
-					String reservedRoomType = lineComponents[20];
+					String reservedRoomType = lineComponents[19];
 					
-					String assignedRoomType = lineComponents[21];
+					String assignedRoomType = lineComponents[20];
 					
 					try {
-						bookingChanges = Integer.parseInt(lineComponents[22]);
+						bookingChanges = Integer.parseInt(lineComponents[21]);
 						} catch (NumberFormatException e) {
 
 						}
 					
-					String depositType = lineComponents[23];
+					String depositType = lineComponents[22];
 					
 					try {
-						 agent = Integer.parseInt(lineComponents[24]);
-						} catch (NumberFormatException e) {
-
-						}
-					
-					try {
-						company = Integer.parseInt(lineComponents[25]);
+						 agent = Integer.parseInt(lineComponents[23]);
 						} catch (NumberFormatException e) {
 
 						}
 					
 					try {
-						daysInWaitingList = Integer.parseInt(lineComponents[26]);
+						company = Integer.parseInt(lineComponents[24]);
 						} catch (NumberFormatException e) {
 
 						}
 					
-					String customerType = lineComponents[27];
+					try {
+						daysInWaitingList = Integer.parseInt(lineComponents[25]);
+						} catch (NumberFormatException e) {
+
+						}
+					
+					String customerType = lineComponents[26];
 					
 					try {
-						adr = Integer.parseInt(lineComponents[28]);
+						adr = Integer.parseInt(lineComponents[27]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 					try {
-						requiredCarParkingSpaces = Integer.parseInt(lineComponents[29]);
+						requiredCarParkingSpaces = Integer.parseInt(lineComponents[28]);
 					} catch (NumberFormatException e) {
 
 					}
 					
 					try {
-						totalOfSpecialRequests = Integer.parseInt(lineComponents[30]);
+						totalOfSpecialRequests = Integer.parseInt(lineComponents[29]);
 					} catch (NumberFormatException e) {
 
 					}
 					
-					String reservationStatus = lineComponents[31];
+					String reservationStatus = lineComponents[30];
 					
-					String reservationStatusDate = lineComponents[32];
+					String reservationStatusDate = lineComponents[31];
 				
 					
 					HotelBooking hotelBookings = new HotelBooking(hotel, isCanceled, leadTime, arrivalDateYear, arrivalDateMonth, arrivalDateWeekNum, arrivalDateDayOfMonth,
