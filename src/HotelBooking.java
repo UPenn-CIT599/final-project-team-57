@@ -1,5 +1,5 @@
 	/**
-	 * Represents each passenger from the CSV
+	 * Represents each line from the CSV
 	 
 	 */
 public class HotelBooking {
@@ -10,7 +10,7 @@ public class HotelBooking {
 		private boolean isCanceled;
 		private int leadTime;
 		private int arrivalDateYear;
-		private int arrivalDateMonth;
+		private String arrivalDateMonth;
 		private int arrivalDateWeekNum;
 		private int arrivalDateDayOfMonth;
 		private int staysInWeekendNights;
@@ -77,7 +77,7 @@ public class HotelBooking {
 		 * @param reservationStatusDate
 		 */
 
-		public HotelBooking(String hotel, boolean isCanceled, int leadTime, int arrivalDateYear, int arrivalDateMonth, int arrivalDateWeekNum, int arrivalDateDayOfMonth,
+		public HotelBooking(String hotel, boolean isCanceled, int leadTime, int arrivalDateYear, String arrivalDateMonth, int arrivalDateWeekNum, int arrivalDateDayOfMonth,
 		int staysInWeekendNights, int staysInWeekNights, int adults, int children, int babies, String meal, String country, String marketSegment, String distributionChannel,
 		boolean repeatedGuest, int previousCancellations, int previousBookingsNotCanceled, String reservedRoomType,	String assignedRoomType, int bookingChanges,
 		String depositType, int agent, int company, int daysInWaitingList, String customerType, int adr, int requiredCarParkingSpaces, int totalOfSpecialRequests,
@@ -143,7 +143,7 @@ public class HotelBooking {
 
 
 
-		public int getArrivalDateMonth() {
+		public String getArrivalDateMonth() {
 			return arrivalDateMonth;
 		}
 
