@@ -181,7 +181,7 @@ public class HotelBookingReader {
 					
 					String reservationStatusDate = lineComponents[31];
 				/**
-				* Constructor for instance variables
+				* Creates ArrayList for all instance variables
 				*/
 					HotelBooking hotelBookings = new HotelBooking(hotel, isCanceled, leadTime, arrivalDateYear, arrivalDateMonth, arrivalDateWeekNum, arrivalDateDayOfMonth,
 							staysInWeekendNights, staysInWeekNights, adults, children, babies, meal, country, marketSegment, distributionChannel,
