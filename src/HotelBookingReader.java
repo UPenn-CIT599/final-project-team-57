@@ -180,8 +180,9 @@ public class HotelBookingReader {
 					String reservationStatus = lineComponents[30];
 					
 					String reservationStatusDate = lineComponents[31];
-				
-					
+				/**
+				* Constructor for instance variables
+				*/
 					HotelBooking hotelBookings = new HotelBooking(hotel, isCanceled, leadTime, arrivalDateYear, arrivalDateMonth, arrivalDateWeekNum, arrivalDateDayOfMonth,
 							staysInWeekendNights, staysInWeekNights, adults, children, babies, meal, country, marketSegment, distributionChannel,
 							repeatedGuest, previousCancellations, previousBookingsNotCanceled, reservedRoomType,	assignedRoomType, bookingChanges,
