@@ -76,3 +76,19 @@ public class DataAnalysis {
 	}
 
 }
+
+
+/*
+ * get the average lead time 
+ */
+	public static double getAvgLeadTime(ArrayList<HotelBooking> leadTime) {
+	double sum=0;
+	int count=0;
+	for (HotelBooking booking: leadTime) {
+		if(hoteBooking.getLeadTime()>=0) {//not void
+			sum+=hotelBooking.getLeadTime();
+			count++;
+		}
+	}
+	return sum/count;
+} 
