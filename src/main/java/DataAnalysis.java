@@ -1,22 +1,14 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class DataAnalysis {
 	
-	ArrayList<HotelBooking> hotelBookings = new ArrayList<HotelBooking>();
+	List<HotelBooking> hotelBookings = new ArrayList<HotelBooking>();
 	
-	public DataAnalysis (ArrayList<HotelBooking> hotelBookings) {
+	public DataAnalysis (List<HotelBooking> hotelBookings) {
 		this.hotelBookings = hotelBookings;
-	}
-
-
-	/**
-	 * Returns all hotel booking objects read from CSV
-	 * @return
-	 */
-	public ArrayList<HotelBooking> getHotelBooking() {
-		return hotelBookings;
 	}
 
 	/**
