@@ -7,6 +7,7 @@ public class HotelBookingRunner {
 		System.out.println("Number of rows " +hotelBookingList.size());
 		DataAnalysis da = new DataAnalysis(hotelBookingList);
 		da.getAnswer1();
+		da.getAnswer2();
 		
 		
 		//FormattedOutput fo = new FormattedOutput();

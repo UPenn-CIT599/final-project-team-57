@@ -78,7 +78,7 @@ public class HotelBookingReader {
 		try {
 			return LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		} catch (Exception e) {
-			return LocalDate.parse(date, DateTimeFormatter.ofPattern("MM/d/yy"));
+			return LocalDate.parse(date, DateTimeFormatter.ofPattern("M/d/yyyy"));
 		}
 	}
 }
