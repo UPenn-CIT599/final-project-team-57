@@ -86,7 +86,6 @@ public class DataAnalysis {
 	}
 		return sum/count;
 		}
-	} 
 }
 
 	
