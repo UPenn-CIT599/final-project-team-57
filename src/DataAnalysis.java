@@ -74,21 +74,45 @@ public class DataAnalysis {
 
 		return answer1;
 	}
+	
+	/**
+	 * Question 2: What is the cheapest and most expensive rates for hotel rooms?
+	 * @return
+	 */
+	
+	public static double getRoomRates(ArrayList<HotelBooking> adr) {
+		double sum=0;
+		int count=0;
+		for (HotelBooking roomRates: adr) {
+			if(roomRates.getAdr()>=0) {
+				sum += roomRates.getAdr();
+				count++;
+			}
+		}
+		return sum/count;
+		}
+		
+		
+		String answer2 =  "The lowest hotel room rate is " + BestBookingTime +  ". The most expensive hotel room rate is" + WorstBookingTime;
 
-}
+		return answer2;
+	}
 
 
-/*
- * get the average lead time 
- */
+	/**
+	 * Question 3: What is the average lead time for booking a hotel room?
+	 * @return
+	 */
 	public static double getAvgLeadTime(ArrayList<HotelBooking> leadTime) {
 	double sum=0;
 	int count=0;
 	for (HotelBooking booking: leadTime) {
-		if(hoteBooking.getLeadTime()>=0) {//not void
-			sum+=hotelBooking.getLeadTime();
+		if(booking.getLeadTime()>=0) {//not void
+			sum += booking.getLeadTime();
 			count++;
 		}
 	}
 	return sum/count;
+	}
 } 
+	
