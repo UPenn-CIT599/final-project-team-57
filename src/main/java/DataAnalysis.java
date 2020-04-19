@@ -12,89 +12,69 @@ public class DataAnalysis {
 	}
 
 	/**
-	 * Question 1
-	 * 	Finds the most and least busy time to book a hotel room
+	 * Question 2: What is the average rate for a hotel room?
+	 * @param cost
 	 * @return
 	 */
-	
-	public String getAnswer1(){
-		HashMap<String, Integer> BestTimeToBook = new HashMap<>();
-		for  (HotelBooking hotelBooking : hotelBookings) {
-			if  (!hotelBooking.getArrivalDateMonth().equals("")  && hotelBooking.getArrivalDateDayOfMonth() > 0) {
-				
-				//converts the int (day) to a string minus comma and back to the int
-				String day = Integer.toBinaryString(hotelBooking.getArrivalDateDayOfMonth());
-				String dayString = day.substring(0, day.length() -1);
-				int arrivialDateDayOfMonth = Integer.parseInt(dayString);
-				
-				// count starts at one due to the else statement being the first instance 
-				int count = 1;
-				if (BestTimeToBook.containsKey(hotelBooking.getArrivalDateMonth()) && BestTimeToBook.containsValue(arrivialDateDayOfMonth)) {
-					count++;
-				}
-				else {
-					BestTimeToBook.put(hotelBooking.getArrivalDateMonth(), arrivialDateDayOfMonth);
-				}
-			}
-			
-		}
-	
-		String BestBookingTime = "";
-		String WorstBookingTime = "";
 
-		ArrayList<Integer> numberOfBookings = new ArrayList<>();
-		for (String ArrivalDateMonth : BestTimeToBook.keySet()) {
-			numberOfBookings.add(BestTimeToBook.get(ArrivalDateMonth));
-		}
-		
-
-		//sort low to high, then iterate to see what item matches lowest number of bookings
-		Collections.sort(numberOfBookings);
-		for (String ArrivalDateMonth : BestTimeToBook.keySet()) {
-			if (BestTimeToBook.get(ArrivalDateMonth) == numberOfBookings.get(0)) {
-				BestBookingTime = ArrivalDateMonth;
-			}
-		}
-		for (String ArrivalDateMonth : BestTimeToBook.keySet()) {
-			if (BestTimeToBook.get(ArrivalDateMonth) == numberOfBookings.get(numberOfBookings.size() - 1)) {
-				WorstBookingTime = ArrivalDateMonth;
-			}
-		}
-		
-		
-		String answer1 =  "Best time to book is " + BestBookingTime + "Worst time to book is " + WorstBookingTime;
-
-		return answer1;
-	}
-	
-	/**
-	 * Question 2: What is the cheapest and most expensive rates for hotel rooms?
-	 * @return
-	 */
-	
-	public static double getRoomRates(ArrayList<HotelBooking> adr) {
-		double sum=0;
-		int count=0;
-		for (HotelBooking roomRates: adr) {
-			if(roomRates.getAdr()>=0) {
-				sum += roomRates.getAdr();
+	public static double getRoomRates(ArrayList<HotelBooking> cost) {
+		double sum = 0;
+		int count = 0;
+		for (HotelBooking hotelBooking : cost) {
+			if (hotelBooking.getAdr() >= 0) { // Rooms without rate info have a value  = -1 and are not included
+				sum += hotelBooking.getAdr();
 				count++;
 			}
 		}
-		return sum/count;
-		}
-		
-		
-//		String answer2 =  "The lowest hotel room rate is " + BestBookingTime +  ". The most expensive hotel room rate is" + WorstBookingTime;
-//
-//		return answer2;
-//	}
-
-
+		return sum / count;
+	}
+	
 	/**
-	 * Question 3: What is the average lead time for booking a hotel room?
+	 * Question 3: What percentage of the time are room reservations cancelled?
+	 * @param cancelled
 	 * @return
 	 */
+	
+	public static double getCancelledPercentage(ArrayList<HotelBooking> cancelled) {
+		double totalReservations = 0;
+		int count = 0;
+		for (HotelBooking hotelBooking : cancelled) {
+			if (hotelBooking.isCanceled()) { // Rooms without cancellation info have a value  = -1 and are not included
+				totalReservations++;
+				count++;
+			}
+			else {
+				totalReservations++;
+			}
+		}
+		return (count / totalReservations) * 100;
+	}
+	
+	/**
+	 * Question 4: What is the average number of days stayed?
+	 * @param nightsStayed
+	 * @return
+	 */
+	
+	public static double getAvgNightsStayed(ArrayList<HotelBooking> nightsStayed) {
+	double sum=0;
+	int count=0;
+	for (HotelBooking hotelBooking: nightsStayed) {
+		if(hotelBooking.getStaysInWeekNights()>=0 || hotelBooking.getStaysInWeekendNights()>=0 ) { //Rooms without rate info have a value  = -1 and are not included
+			sum += hotelBooking.getStaysInWeekNights();
+			sum += hotelBooking.getStaysInWeekendNights();
+			count++;
+		}
+	}
+		return sum/count;
+	}
+	
+
+	/**
+	 * Question 5: What is the average lead time for booking a hotel room?
+	 * @return
+	 */
+	
 	public static double getAvgLeadTime(ArrayList<HotelBooking> leadTime) {
 	double sum=0;
 	int count=0;
@@ -104,7 +84,9 @@ public class DataAnalysis {
 			count++;
 		}
 	}
-	return sum/count;
-	}
-} 
+		return sum/count;
+		}
+	} 
+}
+
 	
