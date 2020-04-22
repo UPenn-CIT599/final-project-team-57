@@ -101,7 +101,7 @@ public class HotelBookingRunner extends Application{
 			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
 
 			DataAnalysis da = new DataAnalysis(hotelBookingList);
-			ArrayList<HotelBooking> canceledRooms = da.isCanceled();
+			List<HotelBooking> canceledRooms = da.getHotelBooking();
 			
 			da.getAnswer3(canceledRooms);
 		});
