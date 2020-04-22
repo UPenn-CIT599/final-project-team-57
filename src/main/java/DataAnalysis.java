@@ -84,7 +84,6 @@ public class DataAnalysis {
 	 */
 	public double getAnswer3(List<HotelBooking> canceledRooms) {
 		double percentage = 0.0;
-		double roundedPercentage = 0.0;
 		double totalReservations = 0.0;
 		int count = 0;
 	
@@ -101,9 +100,8 @@ public class DataAnalysis {
 		percentage = ((count / totalReservations) * 100); // converting to percentage 
 		BigDecimal bd = new BigDecimal(percentage);
 		bd = bd.round(new MathContext(4));
-		roundedPercentage = bd.doubleValue();
+		Double roundedPercentage = bd.doubleValue();
 				
-		
 		System.out.println("Percentage of rooms canceled = " + roundedPercentage + "%");
 		return roundedPercentage;
 	}
@@ -118,7 +116,6 @@ public class DataAnalysis {
 		double sum = 0;
 		int count = 0;
 		double average = 0;
-		double roundedAverage = 0;
 		
 		for (HotelBooking hotelBooking: hotelBooking2) {
 			if(hotelBooking.getStaysInWeekNights()>=0 || hotelBooking.getStaysInWeekendNights()>=0 ) { //Rooms without rate info have a value  = -1 and are not included
@@ -131,7 +128,7 @@ public class DataAnalysis {
 		average = sum / count;
 		BigDecimal bd = new BigDecimal(average);
 		bd = bd.round(new MathContext(3));
-		roundedAverage = bd.doubleValue();
+		Double roundedAverage = bd.doubleValue();
 		
 		System.out.println("The average number of days stayed at a hotel = " + roundedAverage);
 		
@@ -148,7 +145,6 @@ public class DataAnalysis {
 		double sum = 0;
 		int count = 0;
 		double average = 0;
-		double roundedAverage = 0;
 		
 		for (HotelBooking booking: hotelBooking) {
 			if(booking.getLeadTime()>=0) {//not void
@@ -159,7 +155,7 @@ public class DataAnalysis {
 		average = sum / count;
 		BigDecimal bd = new BigDecimal(average);
 		bd = bd.round(new MathContext(3));
-		roundedAverage = bd.doubleValue();
+		Double roundedAverage = bd.doubleValue();
 		
 		average = sum / count; 
 		System.out.println("The average days of lead time for booking a hotel room = " + roundedAverage);
