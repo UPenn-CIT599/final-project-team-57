@@ -84,6 +84,7 @@ public class DataAnalysis {
 	 */
 	public double getAnswer3(List<HotelBooking> canceledRooms) {
 		double percentage = 0.0;
+		double roundedPercentage = 0.0;
 		double totalReservations = 0.0;
 		int count = 0;
 	
@@ -96,9 +97,15 @@ public class DataAnalysis {
 				totalReservations++;
 			}
 		}
+		
 		percentage = ((count / totalReservations) * 100); // converting to percentage 
-		System.out.println("Percentage of rooms canceled = " + percentage + "%");
-		return percentage;
+		BigDecimal bd = new BigDecimal(percentage);
+		bd = bd.round(new MathContext(4));
+		roundedPercentage = bd.doubleValue();
+				
+		
+		System.out.println("Percentage of rooms canceled = " + roundedPercentage + "%");
+		return roundedPercentage;
 	}
 
 	/**
