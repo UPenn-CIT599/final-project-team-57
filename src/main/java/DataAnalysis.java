@@ -82,26 +82,23 @@ public class DataAnalysis {
 	 * @param cancelled
 	 * @return
 	 */
-
-	public double getAnswer3(ArrayList<HotelBooking> isCanceled) {
+	public double getAnswer3(List<HotelBooking> canceledRooms) {
 		double percentage = 0.0;
 		double totalReservations = 0.0;
 		int count = 0;
 	
-		for (HotelBooking hotelBooking : isCanceled) {
-			if (hotelBooking.isCanceled()) { // Rooms without cancellation info have a value  = -1 and are not included
+		for (HotelBooking canceled : canceledRooms) {
+			if (canceled.isCanceled() == true) { 
 				totalReservations++;
 				count++;
 			}
-			else   { // Rooms without cancellation info have a value  = -1 and are not included
+			else  { 
 				totalReservations++;
 			}
 		}
-
 		percentage = ((count / totalReservations) * 100); // converting to percentage 
 		System.out.println("Percentage of rooms canceled = " + percentage + "%");
 		return percentage;
-		
 	}
 
 	/**
