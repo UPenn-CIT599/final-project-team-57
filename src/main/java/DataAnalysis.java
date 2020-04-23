@@ -52,7 +52,7 @@ public class DataAnalysis {
 				.mapToDouble(booking -> booking.getAdr())
 				.max()
 				.getAsDouble();
-		System.out.println("Maximum rate = " + "$" +maxRate);
+		System.out.println("Maximum rate = $" +maxRate);
 		return maxRate;
 	}
 
@@ -72,7 +72,7 @@ public class DataAnalysis {
 				.min()
 				.getAsDouble();
 		
-		System.out.println("Minimum rate = " + "$" + minRate);
+		System.out.println("Minimum rate = $" + minRate);
 		
 		return minRate;
 	}
