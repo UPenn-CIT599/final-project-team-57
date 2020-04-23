@@ -22,7 +22,7 @@ public class HotelBookingRunner extends Application{
 		Button Question3;
 		Button Question4;
 		Button Question5;
-		
+		Button Question6;
 		
 	public static void main(String[] args) {
 		
@@ -54,12 +54,14 @@ public class HotelBookingRunner extends Application{
 		Question3 = new Button();
 		Question4 = new Button();
 		Question5 = new Button();
+		Question6 = new Button();
 		
 		Question1.setText("What is the maximum rate for a non-cancelled resort hotel room in USA over the years?");
 		Question2.setText("What is the minimum rate for a non-cancelled resort hotel room in USA over the years?");
 		Question3.setText("What percentage of the time are room reservations cancelled?");
 		Question4.setText("What is the average number of days stayed?");
 		Question5.setText("What is the average lead time for booking a hotel room?");
+		Question6.setText("What is the busiest and least busiest time to book a hotel room?");
 		
 		
 		
@@ -78,7 +80,8 @@ public class HotelBookingRunner extends Application{
 		Question4.setTranslateY(400);
 		Question5.setTranslateX(50);
 		Question5.setTranslateY(500);
-		
+		Question6.setTranslateX(50);
+		Question6.setTranslateY(600);
 		
 		/**
 		 * Action for what happens when the button is pushed
@@ -163,6 +166,20 @@ public class HotelBookingRunner extends Application{
 			answer5.setTranslateY(550);
 			layout.getChildren().add(answer5);
 		});
+		
+		Question6.setOnAction(event -> {
+			
+			HotelBookingReader hbr = new HotelBookingReader();
+			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
+			DataAnalysis da = new DataAnalysis(hotelBookingList);
+			
+			String toStringAnswer6 = String.valueOf(da.getAnswer6());
+			Text answer6 = new Text();
+			answer6.setText("The average days of lead time for booking a hotel room = " + toStringAnswer6);
+			answer6.setTranslateX(50);
+			answer6.setTranslateY(650);
+			layout.getChildren().add(answer6);
+		});
 
 		
 		/**
@@ -175,13 +192,14 @@ public class HotelBookingRunner extends Application{
 		layout.getChildren().add(Question3);
 		layout.getChildren().add(Question4);
 		layout.getChildren().add(Question5);
+		layout.getChildren().add(Question6);
 		
 		
 		/**
 		 * Creates the Scene
 		 */
 		
-		Scene scene = new Scene(layout, 600, 600);
+		Scene scene = new Scene(layout, 600, 700);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
