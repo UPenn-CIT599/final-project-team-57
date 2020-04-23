@@ -175,7 +175,7 @@ public class HotelBookingRunner extends Application{
 			
 			String toStringAnswer6 = String.valueOf(da.getAnswer6());
 			Text answer6 = new Text();
-			answer6.setText("The average days of lead time for booking a hotel room = " + toStringAnswer6);
+			answer6.setText(toStringAnswer6);
 			answer6.setTranslateX(50);
 			answer6.setTranslateY(650);
 			layout.getChildren().add(answer6);
@@ -199,7 +199,7 @@ public class HotelBookingRunner extends Application{
 		 * Creates the Scene
 		 */
 		
-		Scene scene = new Scene(layout, 600, 700);
+		Scene scene = new Scene(layout, 750, 700);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		

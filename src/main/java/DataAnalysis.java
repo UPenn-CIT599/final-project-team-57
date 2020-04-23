@@ -7,6 +7,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 
 public class DataAnalysis {
 
@@ -176,21 +179,20 @@ public class DataAnalysis {
 	
 	public String getAnswer6(){
 		HashMap<String, Integer> BestTimeToBook = new HashMap<>();
+		int count = 0; 
 		for  (HotelBooking hotelBooking : hotelBookings) {
+			
 			if  (!hotelBooking.getArrivalDateMonth().equals("")  && hotelBooking.getArrivalDateDayOfMonth() > 0) {
 				
-				//converts the int (day) to a string minus comma and back to the int
-				String day = Integer.toBinaryString(hotelBooking.getArrivalDateDayOfMonth());
-				String dayString = day.substring(0, day.length() -1);
-				int arrivialDateDayOfMonth = Integer.parseInt(dayString);
+				String day = Integer.toString(hotelBooking.getArrivalDateDayOfMonth());
+				String date = hotelBooking.getArrivalDateMonth() + " " + day;
 				
-				// count starts at one due to the else statement being the first instance 
-				int count = 1;
-				if (BestTimeToBook.containsKey(hotelBooking.getArrivalDateMonth()) && BestTimeToBook.containsValue(arrivialDateDayOfMonth)) {
-					count++;
+	
+				if (BestTimeToBook.containsKey(date)) {
+					 BestTimeToBook.put(date, count++);
 				}
 				else {
-					BestTimeToBook.put(hotelBooking.getArrivalDateMonth(), arrivialDateDayOfMonth);
+					BestTimeToBook.put(date, count++);
 				}
 			}
 			
@@ -200,27 +202,53 @@ public class DataAnalysis {
 		String WorstBookingTime = "";
 
 		ArrayList<Integer> numberOfBookings = new ArrayList<>();
-		for (String ArrivalDateMonth : BestTimeToBook.keySet()) {
-			numberOfBookings.add(BestTimeToBook.get(ArrivalDateMonth));
+		for (String date : BestTimeToBook.keySet()) {
+			numberOfBookings.add(BestTimeToBook.get(date));
 		}
 		
 
 		//sort low to high, then iterate to see what item matches lowest number of bookings
 		Collections.sort(numberOfBookings);
-		for (String ArrivalDateMonth : BestTimeToBook.keySet()) {
-			if (BestTimeToBook.get(ArrivalDateMonth) == numberOfBookings.get(0)) {
-				BestBookingTime = ArrivalDateMonth;
+		for (String date : BestTimeToBook.keySet()) {
+			if (BestTimeToBook.get(date) == numberOfBookings.get(0)) {
+				
+				if (date.endsWith("1") || date.endsWith("21") || date.endsWith("31"));
+					BestBookingTime = date + "st";
+				if (date.endsWith("2") || date.endsWith("22"));
+					BestBookingTime = date + "nd";
+				if (date.endsWith("3") || date.endsWith("23"));
+					BestBookingTime = date + "rd";
+				if (date.endsWith("4") || date.endsWith("5") || date.endsWith("6") || date.endsWith("7") || date.endsWith("8") || date.endsWith("9")||
+						date.endsWith("10") || date.endsWith("11") || date.endsWith("12") || date.endsWith("13") || date.endsWith("14") || date.endsWith("15")
+						|| date.endsWith("16") || date.endsWith("17") || date.endsWith("18") || date.endsWith("19") || date.endsWith("20") || date.endsWith("24")
+						|| date.endsWith("25") || date.endsWith("26") || date.endsWith("27") || date.endsWith("28") || date.endsWith("29") || date.endsWith("30"));
+					BestBookingTime = date + "th";
 			}
+		
 		}
-		for (String ArrivalDateMonth : BestTimeToBook.keySet()) {
-			if (BestTimeToBook.get(ArrivalDateMonth) == numberOfBookings.get(numberOfBookings.size() - 1)) {
-				WorstBookingTime = ArrivalDateMonth;
+		for (String date : BestTimeToBook.keySet()) {
+			if (BestTimeToBook.get(date) == numberOfBookings.get(numberOfBookings.size() - 1)) {
+			
+				if (date.endsWith("1") || date.endsWith("21") || date.endsWith("31"));
+				WorstBookingTime = date + "st";
+				if (date.endsWith("2") || date.endsWith("22"));
+				WorstBookingTime = date + "nd";
+				if (date.endsWith("3") || date.endsWith("23"));
+				WorstBookingTime = date + "rd";
+				if (date.endsWith("4") || date.endsWith("5") || date.endsWith("6") || date.endsWith("7") || date.endsWith("8") || date.endsWith("9")||
+					date.endsWith("10") || date.endsWith("11") || date.endsWith("12") || date.endsWith("13") || date.endsWith("14") || date.endsWith("15")
+					|| date.endsWith("16") || date.endsWith("17") || date.endsWith("18") || date.endsWith("19") || date.endsWith("20") || date.endsWith("24")
+					|| date.endsWith("25") || date.endsWith("26") || date.endsWith("27") || date.endsWith("28") || date.endsWith("29") || date.endsWith("30"));
+				WorstBookingTime = date + "th";
 			}
+			
 		}
 		
+		String answer6 =  "Hotels lowest number of bookings is made for " + BestBookingTime + ". " + 
+		"Hotel highest number of bookings is made for " + WorstBookingTime+ ".";
 		
-		String answer6 =  "Best time to book is " + BestBookingTime + "Worst time to book is " + WorstBookingTime;
-
+		System.out.println(answer6);
 		return answer6;
 	}
+
 }
