@@ -1,5 +1,7 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +63,7 @@ public class DataAnalysis {
 	 * @return
 	 */
 
-	public double getAnswer2() {
+	public String getAnswer2() {
 
 		double minRate = this.hotelBookings.stream()
 				.filter(booking -> booking.getCountry().equalsIgnoreCase("USA"))
@@ -72,9 +74,12 @@ public class DataAnalysis {
 				.min()
 				.getAsDouble();
 		
-		System.out.println("Minimum rate = $" + minRate);
+		NumberFormat nf = NumberFormat.getInstance();
+		nf.setMinimumFractionDigits(2);
 		
-		return minRate;
+		System.out.println("Minimum rate = $" + nf.format(minRate));
+		String roundedMinRate = nf.format(minRate);
+		return roundedMinRate;
 	}
 
 	/**
