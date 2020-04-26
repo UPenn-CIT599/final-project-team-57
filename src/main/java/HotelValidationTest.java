@@ -1,13 +1,13 @@
-import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 
 /**
  * Validation tests for Group Project
+ * Three JUnit test for each questions ensuring correct answers are calculated
+ * and that incorrect answer do equal true
  */
 
 public class HotelValidationTest {
@@ -145,5 +145,93 @@ public class HotelValidationTest {
 		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
 		String answer = Junit.getAnswer6();
 		Assert.assertNotEquals("Hotels lowest number of bookings is made for January 29rd. Hotel highest number of bookings is made for December 29st.", answer);
+	}
+	
+	@Test
+	public void questionSevenAveNumPeople() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Person");
+		assertEquals(1.97, answer);
+	}
+	
+	@Test
+	public void questionSevenAveNumPeopleNeg() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Person");
+		Assert.assertNotEquals(2.00, answer);
+	}
+	
+	
+	@Test
+	public void questionSevenAveNumPeopleNeg2() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Person");
+		Assert.assertNotEquals(2.10, answer);
+	}
+	
+	@Test
+	public void questionEightAveNumAdults() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Adult");
+		assertEquals(1.86, answer);
+	}
+	
+	@Test
+	public void questionEightAveNumAdultsNeg() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Adult");
+		Assert.assertNotEquals(1.9, answer);
+	}
+	
+	
+	@Test
+	public void questionSevenAveNumAdultsNeg2() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Adult");
+		Assert.assertNotEquals(1.8, answer);
+	}
+	
+	@Test
+	public void questionSevenAveNumChildren() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Children");
+		assertEquals(0.104, answer);
+	}
+	
+	@Test
+	public void questionEightAveNumChildrenNeg() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Children");
+		Assert.assertNotEquals(0.10, answer);
+	}
+	
+	//Tests the number endings annotations
+	@Test
+	public void questionEightAveNumChildrenNeg2() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Children");
+		Assert.assertNotEquals(0.2, answer);
+	}
+	
+	@Test
+	public void questionSevenAveNumBabies() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Babies");
+		assertEquals(0.00795, answer);
+	}
+	
+	@Test
+	public void questionSevenAveNumBabiesNeg() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Babies");
+		Assert.assertNotEquals(0.008, answer);
+	}
+	
+	//Tests the number endings annotations
+	@Test
+	public void questionSevenAveNumBabiesNeg2() {
+		DataAnalysis Junit = new DataAnalysis(hotelBookingList);
+		Double answer = Junit.getAnswer7(hotelBookingList, "Babies");
+		Assert.assertNotEquals(0.007, answer);
 	}
 }
