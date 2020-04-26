@@ -19,5 +19,5 @@ the answer to and it will appear below that particular question, as well as in t
 You may click on as many of the questions you would like and in any order. 
 To end, simply click the 'X' in the top right of the window stage. 
 
-![]Hotel%20Booking%20Information.PNG
+![](Hotel%20Booking%20Information.PNG)
 
