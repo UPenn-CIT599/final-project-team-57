@@ -1,15 +1,10 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 
 public class DataAnalysis {
 

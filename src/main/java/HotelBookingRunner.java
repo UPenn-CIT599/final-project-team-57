@@ -1,13 +1,7 @@
-import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBase;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -138,7 +132,6 @@ public class HotelBookingRunner extends Application{
 			
 			HotelBookingReader hbr = new HotelBookingReader();
 			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
-
 			DataAnalysis da = new DataAnalysis(hotelBookingList);
 			List<HotelBooking> hotelBooking = da.getHotelBooking();
 			
