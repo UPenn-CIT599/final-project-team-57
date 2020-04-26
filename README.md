@@ -2,7 +2,7 @@
 
 Hotel Booking Demand Question and Answers
 
-This program takes in an data from jesse mostipak about hotel booking demand 
+This program takes in an data from Jesse Mostipak about hotel booking demand
 source: https://www.kaggle.com/jessemostipak/hotel-booking-demand
 
 The hotel booking data provided is read into the program and utilized to answer several questions. 
