@@ -142,8 +142,6 @@ public class HotelBookingRunner extends Application{
 			DataAnalysis da = new DataAnalysis(hotelBookingList);
 			List<HotelBooking> hotelBooking = da.getHotelBooking();
 			
-			da.getAnswer4(hotelBooking);
-			
 			String toStringAnswer4 = String.valueOf(da.getAnswer4(hotelBooking));
 			Text answer4 = new Text();
 			answer4.setText("The average number of days stayed at a hotel = " + toStringAnswer4);
