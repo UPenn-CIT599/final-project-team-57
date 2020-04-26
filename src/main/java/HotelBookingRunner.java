@@ -1,13 +1,7 @@
-import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBase;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -23,6 +17,10 @@ public class HotelBookingRunner extends Application{
 		Button Question4;
 		Button Question5;
 		Button Question6;
+		Button Question7;
+		Button Question8;
+		Button Question9;
+		Button Question10;
 		
 	public static void main(String[] args) {
 		
@@ -55,6 +53,10 @@ public class HotelBookingRunner extends Application{
 		Question4 = new Button();
 		Question5 = new Button();
 		Question6 = new Button();
+		Question7 = new Button();
+		Question8 = new Button();
+		Question9 = new Button();
+		Question10 = new Button();
 		
 		Question1.setText("What is the maximum rate for a non-cancelled resort hotel room in USA over the years?");
 		Question2.setText("What is the minimum rate for a non-cancelled resort hotel room in USA over the years?");
@@ -62,8 +64,10 @@ public class HotelBookingRunner extends Application{
 		Question4.setText("What is the average number of days stayed?");
 		Question5.setText("What is the average lead time for booking a hotel room?");
 		Question6.setText("What is the busiest and least busiest time to book a hotel room?");
-		
-		
+		Question7.setText("What is the average number of people per room?");
+		Question8.setText("What is the average number of adults per room?");
+		Question9.setText("What is the average number of children per room?");
+		Question10.setText("What is the average number of children per room?");
 		
 		/**
 		 * Sets the location for the buttons
@@ -82,6 +86,14 @@ public class HotelBookingRunner extends Application{
 		Question5.setTranslateY(500);
 		Question6.setTranslateX(50);
 		Question6.setTranslateY(600);
+		Question7.setTranslateX(50);
+		Question7.setTranslateY(700);
+		Question8.setTranslateX(50);
+		Question8.setTranslateY(800);
+		Question9.setTranslateX(50);
+		Question9.setTranslateY(900);
+		Question10.setTranslateX(50);
+		Question10.setTranslateY(1000);
 		
 		/**
 		 * Action for what happens when the button is pushed
@@ -138,11 +150,8 @@ public class HotelBookingRunner extends Application{
 			
 			HotelBookingReader hbr = new HotelBookingReader();
 			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
-
 			DataAnalysis da = new DataAnalysis(hotelBookingList);
 			List<HotelBooking> hotelBooking = da.getHotelBooking();
-			
-			da.getAnswer4(hotelBooking);
 			
 			String toStringAnswer4 = String.valueOf(da.getAnswer4(hotelBooking));
 			Text answer4 = new Text();
@@ -180,6 +189,61 @@ public class HotelBookingRunner extends Application{
 			answer6.setTranslateY(650);
 			layout.getChildren().add(answer6);
 		});
+		
+		Question7.setOnAction(event -> {
+			
+			HotelBookingReader hbr = new HotelBookingReader();
+			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
+			DataAnalysis da = new DataAnalysis(hotelBookingList);
+			
+			String toStringAnswer7 = String.valueOf(da.getAnswer7(hotelBookingList, "person"));
+			Text answer7 = new Text();
+			answer7.setText("The average person per room is " + toStringAnswer7);
+			answer7.setTranslateX(50);
+			answer7.setTranslateY(750);
+			layout.getChildren().add(answer7);
+		});
+		
+		Question8.setOnAction(event -> {
+			
+			HotelBookingReader hbr = new HotelBookingReader();
+			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
+			DataAnalysis da = new DataAnalysis(hotelBookingList);
+			
+			String toStringAnswer8 = String.valueOf(da.getAnswer7(hotelBookingList, "adult"));
+			Text answer8 = new Text();
+			answer8.setText("The average adult per room is " + toStringAnswer8);
+			answer8.setTranslateX(50);
+			answer8.setTranslateY(850);
+			layout.getChildren().add(answer8);
+		});
+		Question9.setOnAction(event -> {
+			
+			HotelBookingReader hbr = new HotelBookingReader();
+			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
+			DataAnalysis da = new DataAnalysis(hotelBookingList);
+			
+			String toStringAnswer9 = String.valueOf(da.getAnswer7(hotelBookingList, "children"));
+			Text answer9 = new Text();
+			answer9.setText("The average child per room is " + toStringAnswer9);
+			answer9.setTranslateX(50);
+			answer9.setTranslateY(950);
+			layout.getChildren().add(answer9);
+		});
+		
+		Question10.setOnAction(event -> {
+			
+			HotelBookingReader hbr = new HotelBookingReader();
+			List<HotelBooking> hotelBookingList = hbr.readCSVFile("hotel_bookings.csv");
+			DataAnalysis da = new DataAnalysis(hotelBookingList);
+			
+			String toStringAnswer10 = String.valueOf(da.getAnswer7(hotelBookingList, "babies"));
+			Text answer10 = new Text();
+			answer10.setText("The average baby per room is " + toStringAnswer10);
+			answer10.setTranslateX(50);
+			answer10.setTranslateY(1050);
+			layout.getChildren().add(answer10);
+		});
 
 		
 		/**
@@ -193,13 +257,17 @@ public class HotelBookingRunner extends Application{
 		layout.getChildren().add(Question4);
 		layout.getChildren().add(Question5);
 		layout.getChildren().add(Question6);
+		layout.getChildren().add(Question7);
+		layout.getChildren().add(Question8);
+		layout.getChildren().add(Question9);
+		layout.getChildren().add(Question10);
 		
 		
 		/**
 		 * Creates the Scene
 		 */
 		
-		Scene scene = new Scene(layout, 750, 700);
+		Scene scene = new Scene(layout, 750, 1100);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		

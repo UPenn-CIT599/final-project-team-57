@@ -1,15 +1,10 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 
 public class DataAnalysis {
 
@@ -126,7 +121,7 @@ public class DataAnalysis {
 		double average = 0;
 		
 		for (HotelBooking hotelBooking: hotelBooking2) {
-			if(hotelBooking.getStaysInWeekNights()>=0 || hotelBooking.getStaysInWeekendNights()>=0 ) { //Rooms without rate info have a value  = -1 and are not included
+			if(hotelBooking.getStaysInWeekNights()>=0 || hotelBooking.getStaysInWeekendNights()>=0 ) { 
 				sum += hotelBooking.getStaysInWeekNights();
 				sum += hotelBooking.getStaysInWeekendNights();
 				count++;
@@ -250,5 +245,48 @@ public class DataAnalysis {
 		System.out.println(answer6);
 		return answer6;
 	}
-
+	
+		/**
+		 * Question 7
+		 * Calculates the average number of people staying in a room
+		 * @param hotelBookingList
+		 * @param Age groups are Person (includes adults, children, and babies), Adults, Children, and Babies
+		 * @return average number of people
+		 */
+	
+		public double getAnswer7(List<HotelBooking> hotelBookingList, String ageGroup ) {
+			double sum = 0;
+			int count = 0;
+			for (HotelBooking hotelBooking : hotelBookingList) {
+				if(ageGroup.equalsIgnoreCase("person")) { // if the ageGroup argument is Person, it means we want the avg number for all occupants
+					sum += hotelBooking.getAdults() + hotelBooking.getChildren() + hotelBooking.getBabies();
+					count++;
+				} 
+				else {
+					if (ageGroup.equalsIgnoreCase("adult")) {
+						sum += hotelBooking.getAdults();
+						count++;
+					}
+				}
+				 {
+					if (ageGroup.equalsIgnoreCase("children")) {
+						sum += hotelBooking.getChildren();
+						count++;	
+					}
+				}
+				{
+					if (ageGroup.equalsIgnoreCase("babies")) {
+						sum += hotelBooking.getBabies();
+						count++;
+					}
+				}
+			}
+			
+			double average = sum / count;
+			BigDecimal bd = new BigDecimal(average);
+			bd = bd.round(new MathContext(3));
+			Double roundedAverage = bd.doubleValue();
+			System.out.println("The average " + ageGroup + " per room is "+ roundedAverage);
+			return roundedAverage;
+		}
 }
