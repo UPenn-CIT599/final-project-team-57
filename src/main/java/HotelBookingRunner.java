@@ -1,10 +1,17 @@
 import java.util.List;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+
 
 public class HotelBookingRunner extends Application{	
 	
@@ -21,6 +28,7 @@ public class HotelBookingRunner extends Application{
 		Button Question8;
 		Button Question9;
 		Button Question10;
+		
 		
 	public static void main(String[] args) {
 		
@@ -40,6 +48,12 @@ public class HotelBookingRunner extends Application{
 		text.setText("Click the question below you would like to know the answer to:");
 		text.setX(50);
 		text.setY(50);
+		
+		Text textEnding	= new Text();
+		textEnding.setText("");
+		textEnding.setX(50);
+		textEnding.setY(1100);
+		
 
 				
 		/**
@@ -244,8 +258,18 @@ public class HotelBookingRunner extends Application{
 			answer10.setTranslateY(1050);
 			layout.getChildren().add(answer10);
 		});
-
 		
+		/**
+		 * Adds scroll bar
+		 */
+        
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(layout);
+        scrollPane.setPrefSize(1000, 1000);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
+	        
 		/**
 		 * Adds the text and buttons
 		 */
@@ -261,17 +285,18 @@ public class HotelBookingRunner extends Application{
 		layout.getChildren().add(Question8);
 		layout.getChildren().add(Question9);
 		layout.getChildren().add(Question10);
+		layout.getChildren().add(textEnding);
 		
 		
 		/**
 		 * Creates the Scene
-		 */
-		
-		Scene scene = new Scene(layout, 750, 1100);
+		 */ 
+	        
+		Scene scene = new Scene(scrollPane, 650, 900);
 		primaryStage.setScene(scene);
-		primaryStage.show();
 		
-
+	        
+		primaryStage.show();
 	}
 
 }

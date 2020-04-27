@@ -22,30 +22,20 @@ public class BookingChannel extends Application {
 				new PieChart.Data("Corporate Booking_5.59%", 6677),
 				new PieChart.Data("Global Distribution System(GDS)_0.16%", 193)
 				);
-		
-		
 
-		
-	
 		
 		//Create the chart and assign the value to it
 		PieChart pChart= new PieChart(channelPieChart);
 		
-		
 		//Set the properties of channelBooking chart
 			
-	
 		Scene scene=new Scene(pChart, 800, 700);
-		
 		
 		pChart.setTitle("Hotel Booking Channel");
 		pChart.setLegendSide(Side.BOTTOM);
 		pChart.setLabelsVisible(true);
 		pChart.setClockwise(false);
-		
 	
-		
-		
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
