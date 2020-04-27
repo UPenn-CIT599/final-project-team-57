@@ -288,7 +288,7 @@ public class HotelBookingRunner extends Application{
 		 * Creates the Scene
 		 */ 
 	        
-		Scene scene = new Scene(scrollPane, 650, 900);
+		Scene scene = new Scene(scrollPane, 900, 900);
 		primaryStage.setScene(scene);
 		
 	        
