@@ -67,7 +67,7 @@ public class HotelBookingRunner extends Application{
 		Question7.setText("What is the average number of people per room?");
 		Question8.setText("What is the average number of adults per room?");
 		Question9.setText("What is the average number of children per room?");
-		Question10.setText("What is the average number of children per room?");
+		Question10.setText("What is the average number of babies per room?");
 		
 		/**
 		 * Sets the location for the buttons
