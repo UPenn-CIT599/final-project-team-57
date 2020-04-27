@@ -19,7 +19,18 @@ To obtain the answers to these questions, upload the java classes, along with th
 button for the HotelBookingRunner class. A pop-up window with appear with the stage titled Hotel Booking Information. Simply click on the question you would like to know
 the answer to and it will appear below that particular question, as well as in the console of Eclipse. 
 You may click on as many of the questions you would like and in any order. 
-To end, simply click the 'X' in the top right of the window stage. 
+To end, simply click the 'X' in the top right of the window stage. See "Hotel Booking Information" below for example.
 
-![](Hotel%20Booking%20Information.PNG)
+Pie charts of other data have been produced. 
+
+To obtain hotel booking channel information (percentage of booking through travel agents & Tour Operators, Corporations, Direct Booking, or Global distribution systems), click run for the BookingChannel.java file. See chart "Hotel Booking Channel" below for example.
+
+To obtain hotel meal booking information (Bed and Breakfast, Full Board, Breakfast and Dinner, No Meal, and Undefined) click run for the PieChartMeal.java file. See chart "Hotel Meal Booking" below for example.
+
+To obtain hotel month booking information, (Jan-Dec), click run for the PietChartMonthTravel.java file. See chart "Hotel Month Booking" below for example. 
+
+![](Images/HotelBookingInfo.PNG)
+![](Images/HotelBookingChannel.PNG)
+![](Images/HotelMealBooking.PNG)
+![](Images/HotelMonthBooking.PNG)
 
