@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 
-public class PieChartMeal extends Application {
+public class BookingChannel extends Application {
 
 	
 	
@@ -16,12 +16,11 @@ public class PieChartMeal extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		
 		// Create a PieChart for meal booking using data from file
-		ObservableList<PieChart.Data> mealPieData=FXCollections.observableArrayList(
-				new PieChart.Data("Bed and Breakfast_77.32%", 92310),
-				new PieChart.Data("Full board_0.67%", 798),
-				new PieChart.Data("Breakfast and dinner_12.11%", 14463),
-				new PieChart.Data("No Meal_8.92%", 10650),
-				new PieChart.Data("Undefined_0.98%", 1169)
+		ObservableList<PieChart.Data> channelPieChart=FXCollections.observableArrayList(
+				new PieChart.Data("Travel Agents&Tour Operators_81.98%", 97870),
+				new PieChart.Data("Direct Booking_12.27%", 14645),
+				new PieChart.Data("Corporate Booking_5.59%", 6677),
+				new PieChart.Data("Global Distribution System(GDS)_0.16%", 193)
 				);
 		
 		
@@ -30,16 +29,16 @@ public class PieChartMeal extends Application {
 	
 		
 		//Create the chart and assign the value to it
-		PieChart pChart= new PieChart(mealPieData);
+		PieChart pChart= new PieChart(channelPieChart);
 		
 		
-		//Set the properties of mealPieData
+		//Set the properties of channelBooking chart
 			
 	
-		Scene scene=new Scene(pChart, 600, 500);
+		Scene scene=new Scene(pChart, 800, 700);
 		
 		
-		pChart.setTitle("Hotel Meal Booking");
+		pChart.setTitle("Hotel Booking Channel");
 		pChart.setLegendSide(Side.BOTTOM);
 		pChart.setLabelsVisible(true);
 		pChart.setClockwise(false);
