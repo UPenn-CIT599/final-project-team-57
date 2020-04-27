@@ -13,6 +13,8 @@ Question 4:What is the average number of days stayed?
 Question 5:What is the average lead time for booking a hotel room?
 Question 6: What is the busiest and least busiest time to book a hotel room?
 
+Download JavaFx to run this program (https://openjfx.io/).
+
 To obtain the answers to these questions, upload the java classes, along with the hotel_bookings.cvs file into eclipse and hit the run
 button for the HotelBookingRunner class. A pop-up window with appear with the stage titled Hotel Booking Information. Simply click on the question you would like to know
 the answer to and it will appear below that particular question, as well as in the console of Eclipse. 
