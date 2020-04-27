@@ -1,0 +1,23 @@
+Project: HotelBooking project
+Team Members: Samantha Pace, Vipin Jain, Siming(Susan) Gao
+Project Link: https://github.com/UPenn-CIT599/final-project-team-57.git
+Project data source: https://www.kaggle.com/jessemostipak/hotel-booking-demand
+
+Project Description:
+The project is to use an online data resource from Jesse Mostipak on Kaggle, and analyze hotel booking demand from year 2015 to 2017. This project used the imported data file, and analyze hotel booking pattern, such as the busy booking season, price of the hotel booking, lead time of the booking, etc. The team also explored the functionality of JavaFX to add the user interface and display the analysis results. 
+
+Work Breakdown:
+Samantha Pace: 
+1. Built the majority of program structures, initiated the project by writing DataAnalysis.java/HotelBooking.java/HotelBookingReader.java/HotelBookingRunner.java/HotelValidationTest.java
+2. Contributed over 50% of JavaFX for displaying the final UI.
+3. Debugging the programs, adding JUnit Tests
+
+Vipine Jain:
+1. Provided ideas to the project, picked up the project resource form the Kaggle website.
+2. Contribute 50% of the major program, including HotelBookingRunner.java/DataAnalysis.java/HotelValidationTest.java
+3. Debugging the program
+
+Susan Gao:
+1. Provide ideas about project topics, provide the potential data analysis options
+2. Contribute 1 question to DataAnalysis.java
+3. Wrote up three PieChart for displaying the hotel booking pattern using JavaFX
