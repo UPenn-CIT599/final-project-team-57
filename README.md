@@ -6,12 +6,16 @@ This program takes in an data from Jesse Mostipak about hotel booking demand
 source: https://www.kaggle.com/jessemostipak/hotel-booking-demand
 
 The hotel booking data provided is read into the program and utilized to answer several questions. 
-Question 1:What is the maximum rate for a non-cancelled resort hotel room in USA over the years?
-Question 2:What is the minimum rate for a non-cancelled resort hotel room in USA over the years?
-Question 3:What percentage of the time are room reservations cancelled?
-Question 4:What is the average number of days stayed?
-Question 5:What is the average lead time for booking a hotel room?
+Question 1: What is the maximum rate for a non-cancelled resort hotel room in USA over the years?
+Question 2: What is the minimum rate for a non-cancelled resort hotel room in USA over the years?
+Question 3: What percentage of the time are room reservations cancelled?
+Question 4: What is the average number of days stayed?
+Question 5: What is the average lead time for booking a hotel room?
 Question 6: What is the busiest and least busiest time to book a hotel room?
+Question 7: What is the average number of people per room?
+Question 8: What is the average number of adults per room?
+Question 9: What is the average number of children per room?
+Question 10: What is the average number of babies per room?
 
 Download JavaFx to run this program (https://openjfx.io/).
 
